@@ -5,7 +5,7 @@ public class Factorial {
         if (i == 1) {
             return 1;
         }
-        
-        return -1;
+
+        return i * this.compute(i-1);
     }
 }
