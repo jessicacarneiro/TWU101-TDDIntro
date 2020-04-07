@@ -20,6 +20,10 @@ public class Account {
     }
 
     public void withdraw(double value) {
+        if (value > this.getBalance()) {
+            throw new IllegalArgumentException();
+        }
+
         this.balance -= value;
     }
 }
