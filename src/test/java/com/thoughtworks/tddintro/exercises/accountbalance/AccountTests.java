@@ -1,16 +1,23 @@
 package com.thoughtworks.tddintro.exercises.accountbalance;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class AccountTests {
+    private Account account;
+
+    @Before
+    public void setUp() throws Exception {
+        // given
+        account = new Account(100);
+    }
+
+
     @Test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
-        // given
-        Account account = new Account(100);
-
         // when
         account.deposit(50);
 
@@ -20,9 +27,6 @@ public class AccountTests {
 
     @Test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-        // given
-        Account account = new Account(100);
-
         // when
         account.withdraw(50);
 
@@ -32,9 +36,6 @@ public class AccountTests {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-        // given
-        Account account = new Account(100);
-
         // when
         account.withdraw(150);
     }
