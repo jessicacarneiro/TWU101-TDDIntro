@@ -30,9 +30,12 @@ public class AccountTests {
         assertEquals(50.0, account.getBalance());
     }
 
-    @Test
-    @Ignore  // Remove each @Ignore and implement test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
+        // given
+        Account account = new Account(100);
 
+        // when
+        account.withdraw(150);
     }
 }
