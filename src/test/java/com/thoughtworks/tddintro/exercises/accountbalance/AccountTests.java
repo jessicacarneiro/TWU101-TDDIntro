@@ -1,10 +1,11 @@
 package com.thoughtworks.tddintro.exercises.accountbalance;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AccountTests {
     private Account account;
@@ -22,7 +23,7 @@ public class AccountTests {
         account.deposit(50);
 
         // then
-        assertEquals(150.0, account.getBalance());
+        assertThat(150.0, is(equalTo(account.getBalance())));
     }
 
     @Test
@@ -31,7 +32,7 @@ public class AccountTests {
         account.withdraw(50);
 
         // then
-        assertEquals(50.0, account.getBalance());
+        assertThat(50.0, is(equalTo(account.getBalance())));
     }
 
     @Test(expected = IllegalArgumentException.class)
